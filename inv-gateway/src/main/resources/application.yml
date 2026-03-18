@@ -7,7 +7,8 @@ spring:
     gateway:
       discovery:
         locator:
-          enabled: true
+#          enabled: true
+          enabled: false #if use custom route then disable default routes by make it false
           lower-case-service-id: true
 
     httpclient:

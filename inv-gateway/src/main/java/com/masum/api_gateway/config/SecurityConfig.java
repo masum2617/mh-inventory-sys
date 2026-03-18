@@ -27,7 +27,7 @@ public class SecurityConfig {
 
         http
                 .authorizeExchange(exchanges -> exchanges
-                        .anyExchange().permitAll()   
+                        .anyExchange().permitAll()
                 )
                 .csrf(ServerHttpSecurity.CsrfSpec::disable);
 

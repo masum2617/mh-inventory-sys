@@ -23,31 +23,31 @@ public class ApiGatewayApplication {
 
 
 	/*custom routing configuration*/
-	/*@Bean
-	public RouteLocator quizRouteConfig(RouteLocatorBuilder routeLocatorBuilder) {
+	@Bean
+	public RouteLocator inventorySysRouteConfig(RouteLocatorBuilder routeLocatorBuilder) {
 		return routeLocatorBuilder.routes()
 				.route(p -> p
-						.path("/quiz/student-service/**")
-						.filters(f -> f.rewritePath("/quiz/student-service/(?<segment>.*)", "/${segment}")
+						.path("/mh-inventory/inventory-service/**")
+						.filters(f -> f.rewritePath("/mh-inventory/inventory-service/(?<segment>.*)", "/${segment}")
 								.addResponseHeader("X-Response-Time", LocalDateTime.now().toString())
 								.retry(retryConfig->retryConfig.setRetries(3)
 										.setMethods(HttpMethod.GET)
 										.setBackoff(Duration.ofMillis(100), Duration.ofMillis(1000),2,true))
-								.circuitBreaker(config->config.setName("studentServiceCircuitBreaker")
+								.circuitBreaker(config->config.setName("inventoryServiceCircuitBreaker")
 										.setFallbackUri("forward:/contactSupport")))
 
-						.uri("lb://STUDENT-SERVICE"))
+						.uri("lb://INVENTORY-SERVICE"))
 				.route(p -> p
-						.path("/quiz/teacher-service/**")
-						.filters(f -> f.rewritePath("/quiz/teacher-service/(?<segment>.*)", "/${segment}")
+						.path("/mh-inventory/auth-service/**")
+						.filters(f -> f.rewritePath("/mh-inventory/auth-service/(?<segment>.*)", "/${segment}")
 								.addResponseHeader("X-Response-Time", LocalDateTime.now().toString())
-								.requestRateLimiter(config->config.setRateLimiter(redisRateLimiter()).setKeyResolver(userKeyResolver()))
-								.circuitBreaker(config -> config.setName("teacherServiceCircuitBreaker")))
-						.uri("lb://TEACHER-SERVICE"))
+//								.requestRateLimiter(config->config.setRateLimiter(redisRateLimiter()).setKeyResolver(userKeyResolver()))
+								.circuitBreaker(config -> config.setName("authServiceCircuitBreaker")))
+						.uri("lb://AUTH-SERVICE"))
 				.build();
 	}
 
-//
+/*
 //	@Bean
 //	public Customizer<ReactiveResilience4JCircuitBreakerFactory> defaultCustomizer() {
 //		return factory -> factory.configureDefault(id -> new Resilience4JConfigBuilder(id)
