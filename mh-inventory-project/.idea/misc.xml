@@ -9,6 +9,7 @@
         <option value="$PROJECT_DIR$/../configserver/pom.xml" />
         <option value="$PROJECT_DIR$/../inventory-discovery/pom.xml" />
         <option value="$PROJECT_DIR$/../inv-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/../message/pom.xml" />
       </list>
     </option>
   </component>

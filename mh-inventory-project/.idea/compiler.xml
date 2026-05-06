@@ -73,9 +73,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="inv-gateway" />
         <module name="configserver" />
         <module name="inventory-discovery" />
+        <module name="message" />
+        <module name="inv-gateway" />
       </profile>
     </annotationProcessing>
   </component>
@@ -86,6 +87,7 @@
       <module name="inv-gateway" options="-parameters" />
       <module name="inventory-discovery" options="-parameters" />
       <module name="inventory-service" options="-parameters" />
+      <module name="message" options="-parameters" />
     </option>
   </component>
 </project>
